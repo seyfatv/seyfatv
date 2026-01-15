@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seyfa TV - Hakikat Konuşur</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700;900&display=swap');
+
+        /* SIFIRLAMA VE TEMEL AYARLAR */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+            height: 100vh; /* Tam ekran yüksekliği */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden; /* Kaydırma çubuklarını gizle */
+            color: #333;
+        }
+
+        /* ARKA PLAN DESENİ (Çok hafif ızgara) */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(#f0f0f0 1px, transparent 1px),
+                linear-gradient(90deg, #f0f0f0 1px, transparent 1px);
+            background-size: 40px 40px;
+            opacity: 0.5;
+            z-index: -1;
+        }
+
+        /* ANA KAPLAYICI */
+        .container {
+            text-align: center;
+            width: 90%;
+            max-width: 800px;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* LOGO ALANI */
+        .logo-container {
+            margin-bottom: 50px;
+            animation: fadeInDown 1.2s ease-out;
+        }
+
+        .logo {
+            max-width: 300px; /* Logo genişliği */
+            width: 80%;
+            height: auto;
+            /* Beyaz arka planlı JPG'yi zemine yedirmek için */
+            mix-blend-mode: multiply; 
+            filter: contrast(1.1); /* Biraz daha net görünüm */
+        }
+
+        /* YAZI ALANI */
+        .text-content {
+            animation: fadeInUp 1.2s ease-out 0.3s forwards;
+            opacity: 0; /* Başlangıçta gizli */
+        }
+
+        h1 {
+            font-size: 3rem; /* Büyük, çarpıcı yazı */
+            font-weight: 900;
+            letter-spacing: -2px;
+            color: #1a1a1a;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        p.tagline {
+            font-size: 1.2rem;
+            color: #666;
+            font-weight: 300;
+            letter-spacing: 5px;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+        }
+
+        /* ANİMASYONLU ÇİZGİ (LOADING BAR) */
+        .loading-wrapper {
+            width: 60px;
+            height: 4px;
+            background: #eee;
+            margin: 0 auto;
+            border-radius: 2px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .loading-bar {
+            width: 100%;
+            height: 100%;
+            background: #000; /* Siyah minimalist çubuk */
+            transform: translateX(-100%);
+            animation: loadLoop 2s infinite ease-in-out;
+        }
+
+        /* MOBİL UYUMLULUK */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+            }
+            .logo {
+                max-width: 200px;
+            }
+            p.tagline {
+                font-size: 0.9rem;
+                letter-spacing: 3px;
+            }
+        }
+
+        /* KEYFRAMES (Hareketler) */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes loadLoop {
+            0% { transform: translateX(-100%); }
+            50% { transform: translateX(0); }
+            100% { transform: translateX(100%); }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Logo -->
+        <div class="logo-container">
+            <!-- Logonun dosya adının 1000178131.jpg olduğundan emin ol -->
+            <img src="1000178131.jpg" alt="Seyfa TV Logo" class="logo">
+        </div>
+
+        <!-- Yazılar ve Efekt -->
+        <div class="text-content">
+            <h1>YAKINDA SİZLERLE</h1>
+            <p class="tagline">HAKİKAT KONUŞUR</p>
+            
+            <!-- Hareketli Alt Çizgi -->
+            <div class="loading-wrapper">
+                <div class="loading-bar"></div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+
+
